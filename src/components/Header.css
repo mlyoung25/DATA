@@ -1,0 +1,45 @@
+/* Header.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #f8f8f8; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+  
+  .header-logo {
+    width: 40%;
+  }
+  
+  .header-logo img {
+    max-width: 100%;
+  }
+  
+  .header-nav {
+    width: 50%;
+  }
+  
+  .header-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-nav li {
+    /* Additional styles for navigation links */
+  }
+  
+  .header-nav a {
+    padding: 10px 15px;
+    display: inline-block;
+  }

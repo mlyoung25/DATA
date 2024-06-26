@@ -1,0 +1,87 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+img {
+  /* stretch image to take the full width of screen */
+  width: 100%;
+  height: auto;
+
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.news-section {
+  display: flex;
+  align-items: flex-start;
+}
+
+.news-heading {
+  color: #35bce8; /* light blue */
+  flex: 0 0 10%; /* Do not grow, do not shrink, and start with 10% width */
+  text-align: left;
+  margin-right: 5%; /* 5% gap between the heading and the content */
+}
+
+.news-content {
+  flex: 0 0 80%; /* Do not grow, do not shrink, and start with 80% width */
+}
+
+
+.aboutme {
+  display: flex;
+  align-items: flex-start; /* Align items to the start of the cross-axis */
+}
+
+.aboutme-heading {
+  color: #35bce8; /* light blue */
+  flex: 0 0 10%; /* Do not grow, do not shrink, and start with 10% width */
+  text-align: left;
+  margin-right: 5%; /* 5% gap between the heading and the paragraphs */
+}
+
+.aboutme-content {
+  flex: 0 0 80%; /* Do not grow, do not shrink, and start with 80% width */
+}
+
+.aboutme-content p {
+  text-align: left; /* Align text to the left side */
+  margin-bottom: 1rem; /* Space below each paragraph */
+}
+
+.aboutme-content li {
+  text-align: left; /* Align text to the left side */
+  margin-left: 2rem;
+  margin-bottom: 1rem; /* Space below each paragraph */
+}
+
+
+
+/* Ensure the container does not take more than the screen width */
+.main {
+  margin: 0 5%; /* 5% margin on both sides of .main */
+}
+
+@media (max-width: 768px) {
+  .aboutme {
+    flex-direction: column;
+  }
+
+  .aboutme h1,
+  .aboutme p {
+    flex-basis: auto; /* Allow elements to automatically adjust */
+  }
+}
