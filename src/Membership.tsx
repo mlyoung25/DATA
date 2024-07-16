@@ -68,62 +68,6 @@ const Membership: React.FC = () => {
 
         <div className='py-8'></div>
 
-        <div className='aboutme'>
-          <div className='aboutme-heading'>
-            <h1 className='text-lg'>Solutions & IP</h1>
-          </div>
-          <div className='aboutme-content'>
-            <p>
-              NSF emphasizes that centers must target common problems and pains by focusing on precompetitive partnerships. All solutions (data, algorithms, etc.) can be used by all participants but only within the framework of the Center. All companies can use the resulting solutions for the applications defined/funded by the Center but not as a product that they market. The Center focuses mainly on deployment of IP via a public, shared resource mechanism such as open source, open access (Creative Commons), or public domain. However, it is very possible that the work conducted under the Center will result in new IP. The ownership of the technology will be governed by the Center’s bylaws. U-M will work with the companies for technology transfer.
-            </p>
-          </div>
-        </div>
-
-        <div className='py-8'></div>
-
-        <div className='aboutme'>
-          <div className='aboutme-heading'>
-            <h1 className='text-lg'>UMICH Resources</h1>
-          </div>
-          <div className='aboutme-content'>
-            <p> Through joining DATA. The University of Michigan provides the following resources available for all members: </p>
-            <ul className='list-disc'>
-              <li>
-                Data and lab resources related to health informatics and pharmacovigilance
-              </li>
-              <li>
-                Expertise in data science and algorithms for health informatics. Samples of the algorithms and computational resources provided by the Center include:
-                <ul className='list-circle'>
-                  <li>
-                    Computational drug toxicity screening and drug interaction modeling using fully homomorphic encryption and coupled tensor methods (CMMC/CTMC)
-                  </li>
-                  <li>
-                    Efficient and effective models for mobile/outpatient monitoring and prediction of adverse events using physiological signals
-                  </li>
-                  <li>
-                    Patient phenotyping using transparent artificial intelligence (AI), which enable interpretation of the recommendations/predictions created by computational methods. These include tensor-based machine learning methods for fusion of multimodal patient data for diagnostic and prognostic modeling
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <p>
-              U-M has already established successful research cores, labs, and resources that will be instrumental to the success of DATA, such as:
-            </p>
-            <ul className='list-disc'>
-              <li>
-                <a href='https://pharmacy.umich.edu/cpl'>Clinical Pharmacogenomics Laboratory</a>
-              </li>
-              <li>
-                <a href='https://ihpi.umich.edu/'>Institute for Healthcare Policy and Innovation</a>
-              </li>
-              <li>
-                <a href='https://drugdiscovery.umich.edu/'>Michigan Drug Discovery</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className='py-12'></div>
 
       </div>
     </>

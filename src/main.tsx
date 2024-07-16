@@ -1,31 +1,46 @@
-import ReactDOM from 'react-dom/client'
-import Layout from './Layout.tsx'
-import App from './App.tsx'
-import About from './About.tsx'
-import Membership from './Membership.tsx'
-import './index.css'
-import {RouterProvider, createBrowserRouter } from 'react-router-dom'
+import ReactDOM from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Layout from './Layout';
+import App from './App';
+import About from './About';
+import Membership from './Membership';
+import Login from './Login';
+import Dashboard from './Dashboard';
+import ProtectedRoute from './ProtectedRoute';
+import { AuthProvider } from './AuthContext';
+import './index.css';
 
-
-const router = createBrowserRouter([{
-  path: '/',
-  element: <Layout />,
-  children: [
-    {
-      path: '/',
-      element: <App />,
-    },
-    {
-      path: 'about',
-      element: <About />,
-    },
-    {
-      path: 'membership',
-      element: <Membership />,
-    },
-  ]
-}])
+const router = createBrowserRouter([
+  {
+    path: '/DATA/',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <App />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'membership',
+        element: <Membership />,
+      },
+      {
+        path: 'login',
+        element: <Login />,
+      },
+      {
+        path: 'dashboard',
+        element: <ProtectedRoute element={<Dashboard />} />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={router}/>
-)
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
+);
