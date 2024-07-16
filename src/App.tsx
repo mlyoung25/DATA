@@ -14,7 +14,7 @@ const App: React.FC = () => {
         {/* In the News section */}
         <div className='news-section'>
           <div className='news-heading'>
-            <h1>In the News</h1>
+            <h1 className='text-lg'>In the News</h1>
           </div>
           <div className='news-content'>
             <img src={AAB} alt="News" className="aboutme" style={{ width: '100%', height: 'auto' }} />
@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
         <div className='aboutme'>
           <div className='aboutme-heading'>
-            <h1>About us</h1>
+            <h1 className='text-lg'>About us</h1>
           </div>
           <div className='aboutme-content'>
             <p>
