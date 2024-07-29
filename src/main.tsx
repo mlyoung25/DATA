@@ -6,7 +6,11 @@ import About from './About';
 import Membership from './Membership';
 import Login from './Login';
 import Dashboard from './Dashboard';
+import News from './News';
+import Tools from './Tools';
+import Article from './components/Article';
 import ProtectedRoute from './ProtectedRoute';
+import CreateContent from './components/CreateContent';
 import { AuthProvider } from './AuthContext';
 import './index.css';
 
@@ -28,12 +32,36 @@ const router = createBrowserRouter([
         element: <Membership />,
       },
       {
+        path: 'news',
+        element: <News />,
+        children: [
+          {
+            path: ':id',
+            element: <Article />,
+          },
+        ],
+      },
+      {
+        path: 'tools',
+        element: <Tools />,
+        children: [
+          {
+            path: ':id',
+            element: <Article />,
+          },
+        ],
+      },
+      {
         path: 'login',
         element: <Login />,
       },
       {
         path: 'dashboard',
         element: <ProtectedRoute element={<Dashboard />} />,
+      },
+      {
+        path: 'create-content',
+        element: <ProtectedRoute element={<CreateContent />} />, 
       },
     ],
   },

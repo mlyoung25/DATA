@@ -70,10 +70,11 @@ img {
 
 
 
-/* Ensure the container does not take more than the screen width */
-.main {
-  margin: 0 5%; /* 5% margin on both sides of .main */
-}
+/* Ensure the container does not take more than the screen width 
+  .main {
+  margin: 0 5%;  // 5% margin on both sides of .main  
+  } 
+*/
 
 @media (max-width: 768px) {
   .aboutme {

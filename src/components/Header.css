@@ -14,32 +14,48 @@
   left: 0;
   z-index: 1000;
 }
-  
-  .header-logo {
-    width: 40%;
-  }
-  
-  .header-logo img {
-    max-width: 100%;
-  }
-  
-  .header-nav {
-    width: 50%;
-  }
-  
-  .header-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .header-nav li {
-    /* Additional styles for navigation links */
-  }
-  
-  .header-nav a {
-    padding: 10px 15px;
-    display: inline-block;
-  }
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add space between logos if needed */
+}
+
+.header-logo {
+  width: auto;
+}
+
+.header-logo img {
+  max-width: 100%;
+}
+
+.nsf-logo img {
+  max-width: 100px; /* Set the desired width for the NSF logo */
+}
+
+.header-nav {
+  width: 50%;
+}
+
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav li {
+  /* Additional styles for navigation links */
+}
+
+.header-nav a {
+  padding: 10px 15px;
+  display: inline-block;
+  color: #4A5568; /* Tailwind color for text-gray-700 */
+  text-decoration: none;
+}
+
+.header-nav a:hover {
+  text-decoration: underline;
+}

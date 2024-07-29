@@ -1,15 +1,10 @@
 import React from 'react';
 import './Footer.css';
 
-// Import your SVG logo here (update path as necessary)
-import NSF from '../assets/NSF-logo.svg';
-
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <div className="footer-logo">
-        <img src={NSF} alt="Small Logo" />
-      </div>
+
       <div className="footer-center">
         <div className='text-left'>Center for Data-Driven Drug Development and Treatment Assessment (DATA)</div>
         <div className='text-left'>University of Michigan, Michigan Institute for Data and AI in Society</div>
