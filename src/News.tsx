@@ -1,26 +1,32 @@
-// News.tsx
 import React, { useState, useEffect } from 'react';
-import Tile from './components/tile';
+import Tile from './components/Tile';
 
 const News: React.FC = () => {
-  const [newsItems, setNewsItems] = useState([]);
+  interface NewsItem {
+    id: number;
+    title: string;
+    thumbnail: string;
+    description: string;
+  }
+  
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    const fetchNews = async () => {
-      const response = await fetch('/api/news');
-      const data = await response.json();
-      setNewsItems(data);
-    };
-
-    fetchNews();
+    const storedNews = JSON.parse(localStorage.getItem('news') || '[]');
+    setNewsItems(storedNews);
   }, []);
 
   return (
     <div className='main'>
       <h1>News</h1>
       <div className="tiles-container">
-        {newsItems.map((item) => (
-          <Tile key={item.id} {...item} linkTo={`/DATA/news/${item.id}`} />
+        {newsItems.map((item: NewsItem) => (
+          <Tile key={item.id}
+                id={item.id} 
+                title={item.title} 
+                thumbnail={item.thumbnail} 
+                description={item.description} 
+                linkTo={`/DATA/news/${item.id}`} />
         ))}
       </div>
     </div>

@@ -1,27 +1,32 @@
-// Tools.tsx
 import React, { useState, useEffect } from 'react';
-import Tile from './components/tile';
-import './App.css'
+import Tile from './components/Tile';
 
 const Tools: React.FC = () => {
-  const [tools, setTools] = useState([]);
+  interface ToolsItem {
+    id: number;
+    title: string;
+    thumbnail: string;
+    description: string;
+  }
+  
+  const [toolsItems, setToolsItems] = useState<ToolsItem[]>([]);
 
   useEffect(() => {
-    const fetchTools = async () => {
-      const response = await fetch('/api/tools');
-      const data = await response.json();
-      setTools(data);
-    };
-
-    fetchTools();
+    const storedTools = JSON.parse(localStorage.getItem('tools') || '[]');
+    setToolsItems(storedTools);
   }, []);
 
   return (
     <div className='main'>
       <h1>Tools</h1>
       <div className="tiles-container">
-        {tools.map((tool) => (
-          <Tile key={tool.id} {...tool} linkTo={`/DATA/tools/${tool.id}`} />
+        {toolsItems.map((item: ToolsItem) => (
+          <Tile key={item.id}
+                id={item.id} 
+                title={item.title} 
+                thumbnail={item.thumbnail} 
+                description={item.description} 
+                linkTo={`/DATA/tools/${item.id}`} />
         ))}
       </div>
     </div>

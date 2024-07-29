@@ -1,4 +1,3 @@
-// Article.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,18 +8,16 @@ interface ArticleProps {
   content: string;
 }
 
-const Article: React.FC<ArticleProps> = () => {
+const Article: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [article, setArticle] = useState(null);
+  const [article, setArticle] = useState<ArticleProps | null>(null);
 
   useEffect(() => {
-    const fetchArticle = async () => {
-      const response = await fetch(`/api/article/${id}`);
-      const data = await response.json();
-      setArticle(data);
-    };
-
-    fetchArticle();
+    const storedNews: ArticleProps[] = JSON.parse(localStorage.getItem('news') || '[]');
+    const storedTools: ArticleProps[] = JSON.parse(localStorage.getItem('tools') || '[]');
+    const combinedItems = [...storedNews, ...storedTools];
+    const foundArticle = combinedItems.find((article: ArticleProps) => article.id === id);
+    setArticle(foundArticle || null);
   }, [id]);
 
   if (!article) return <div>Loading...</div>;

@@ -1,7 +1,5 @@
-// CreateContent.tsx
 import React, { useState } from 'react';
-import './../App.css'
-
+import '../App.css';
 
 const CreateContent: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -9,26 +7,21 @@ const CreateContent: React.FC = () => {
   const [content, setContent] = useState('');
   const [type, setType] = useState('news'); // can be 'news' or 'tool'
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newArticle = { title, thumbnail, content, type };
+    const newArticle = { id: Date.now(), title, thumbnail, content, type };
 
-    const response = await fetch('/api/createContent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newArticle),
-    });
+    // Retrieve current data from local storage
+    const storedItems = JSON.parse(localStorage.getItem(type) || '[]');
+    storedItems.push(newArticle);
+    
+    // Save updated data back to local storage
+    localStorage.setItem(type, JSON.stringify(storedItems));
 
-    if (response.ok) {
-      alert('Content created successfully');
-      setTitle('');
-      setThumbnail('');
-      setContent('');
-    } else {
-      alert('Failed to create content');
-    }
+    alert('Content created successfully');
+    setTitle('');
+    setThumbnail('');
+    setContent('');
   };
 
   return (

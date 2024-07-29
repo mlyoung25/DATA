@@ -12,7 +12,7 @@ interface TileProps {
 }
 
 // Functional component with typed props
-const Tile: React.FC<TileProps> = ({ id, title, thumbnail, description, linkTo }) => {
+const Tile: React.FC<TileProps> = ({ title, thumbnail, description, linkTo }) => {
   return (
     <div className="tile">
       <img src={thumbnail} alt={title} />
