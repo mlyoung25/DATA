@@ -1,0 +1,62 @@
+.create {
+    color: white; /* Sets text color to white */
+  }
+  
+  form {
+    max-width: 600px;
+    margin: auto;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: white; /* Ensures label text is white */
+  }
+  
+  input[type="text"],
+  select,
+  textarea,
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #555; /* Dark background to contrast with white text */
+    color: white; /* Sets text color */
+    margin-bottom: 10px;
+  }
+  
+  input,
+  select,
+  textarea {
+    color: white; /* Ensures text is white */
+  }
+  
+  select {
+    background: #555; /* Ensures select background matches other inputs */
+  }
+  
+  textarea {
+    height: 200px; /* Makes the content field much bigger */
+    resize: vertical; /* Allows vertical resizing */
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

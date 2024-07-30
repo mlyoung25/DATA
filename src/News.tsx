@@ -6,27 +6,38 @@ const News: React.FC = () => {
     id: number;
     title: string;
     thumbnail: string;
-    description: string;
+    content: string; // assuming content is used somewhere here
   }
-  
+
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    const storedNews = JSON.parse(localStorage.getItem('news') || '[]');
-    setNewsItems(storedNews);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/DATA/api/news'); // Updated endpoint
+        const data = await response.json();
+        setNewsItems(data);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
     <div className='main'>
       <h1>News</h1>
-      <div className="tiles-container">
+      <div className='tiles-container'>
         {newsItems.map((item: NewsItem) => (
-          <Tile key={item.id}
-                id={item.id} 
-                title={item.title} 
-                thumbnail={item.thumbnail} 
-                description={item.description} 
-                linkTo={`/DATA/news/${item.id}`} />
+          <Tile 
+            key={item.id} 
+            id={item.id} 
+            title={item.title} 
+            thumbnail={item.thumbnail} 
+            description={item.content} 
+            linkTo={`/DATA/news/${item.id}`} 
+          />
         ))}
       </div>
     </div>

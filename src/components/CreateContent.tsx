@@ -1,62 +1,93 @@
+// CreateContent Component
+
 import React, { useState } from 'react';
-import '../App.css';
+import './CreateContent.css'; // Import your custom CSS file
 
 const CreateContent: React.FC = () => {
   const [title, setTitle] = useState('');
-  const [thumbnail, setThumbnail] = useState('');
+  const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [content, setContent] = useState('');
-  const [type, setType] = useState('news'); // can be 'news' or 'tool'
+  const [type, setType] = useState('news');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setThumbnail(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newArticle = { id: Date.now(), title, thumbnail, content, type };
-
-    // Retrieve current data from local storage
-    const storedItems = JSON.parse(localStorage.getItem(type) || '[]');
-    storedItems.push(newArticle);
-    
-    // Save updated data back to local storage
-    localStorage.setItem(type, JSON.stringify(storedItems));
-
-    alert('Content created successfully');
-    setTitle('');
-    setThumbnail('');
-    setContent('');
+  
+    if (!thumbnail) {
+      alert('Please select a thumbnail image');
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('thumbnail', thumbnail);
+    formData.append('content', content);
+    formData.append('type', type);
+  
+    try {
+      const response = await fetch('/DATA/api/createContent', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        alert('Content created successfully');
+        setTitle('');
+        setThumbnail(null);
+        setContent('');
+      } else {
+        const errorMessage = await response.text();
+        console.error('Error response from server:', errorMessage);
+        alert('Failed to create content: ' + errorMessage);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while creating content');
+    }
   };
 
   return (
-    <div className='main'>
-        <form onSubmit={handleSubmit}>
+    <div className='create'>
+      <div className='py-12'></div>
+
+      <form onSubmit={handleSubmit}>
         <h2>Create New Content</h2>
-        <div>
-            <label>
+        <div className='form-group'>
+          <label>
             Type:
             <select value={type} onChange={(e) => setType(e.target.value)}>
-                <option value="news">News</option>
-                <option value="tool">Tool</option>
+              <option value='news' className='text-white'>News</option>
+              <option value='tool'>Tool</option>
             </select>
-            </label>
+          </label>
         </div>
-        <div>
-            <label>
+        <div className='form-group'>
+          <label>
             Title:
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-            </label>
+            <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+          </label>
         </div>
-        <div>
-            <label>
-            Thumbnail URL:
-            <input type="text" value={thumbnail} onChange={(e) => setThumbnail(e.target.value)} />
-            </label>
+        <div className='form-group'>
+          <label>
+            Thumbnail:
+            <input type='file' onChange={handleFileChange} />
+          </label>
         </div>
-        <div>
-            <label>
+        <div className='form-group'>
+          <label>
             Content:
             <textarea value={content} onChange={(e) => setContent(e.target.value)}></textarea>
-            </label>
+          </label>
         </div>
-        <button type="submit">Publish</button>
-        </form>
+        <button type='submit'>Publish</button>
+      </form>
+
+      <div className='py-36'></div>
     </div>
   );
 };

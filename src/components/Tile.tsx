@@ -1,8 +1,6 @@
-// Tile.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Define the props interface
 interface TileProps {
   id: number;
   title: string;
@@ -11,7 +9,6 @@ interface TileProps {
   linkTo: string;
 }
 
-// Functional component with typed props
 const Tile: React.FC<TileProps> = ({ title, thumbnail, description, linkTo }) => {
   return (
     <div className="tile">
@@ -24,3 +21,5 @@ const Tile: React.FC<TileProps> = ({ title, thumbnail, description, linkTo }) =>
 };
 
 export default Tile;
+
+
