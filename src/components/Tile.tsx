@@ -10,9 +10,10 @@ interface TileProps {
 }
 
 const Tile: React.FC<TileProps> = ({ title, thumbnail, description, linkTo }) => {
+  const imagePath = require(`../assets/${thumbnail}`).default
   return (
     <div className="tile">
-      <img src={thumbnail} alt={title} />
+      <img src={imagePath} alt={title} />
       <h3>{title}</h3>
       <p>{description}</p>
       <Link to={linkTo}>Read more</Link>
@@ -21,5 +22,3 @@ const Tile: React.FC<TileProps> = ({ title, thumbnail, description, linkTo }) =>
 };
 
 export default Tile;
-
-
