@@ -1,22 +1,24 @@
-/* Header.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 10%;
+  height: 100vh; /* Make the header fill the screen height */
   background: #f8f8f8; 
   position: fixed; 
-  top: 0;
-  left: 0;
+  right: 0;
   z-index: 1000;
+  padding-top: 20px; /* Add some padding at the top */
 }
 
 .header-logo-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px; /* Add space between logos if needed */
 }
@@ -34,28 +36,41 @@
 }
 
 .header-nav {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .header-nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .header-nav li {
-  /* Additional styles for navigation links */
+  margin: 10px 0; /* Space between items */
 }
 
-.header-nav a {
+.header-nav a, .header-nav button {
   padding: 10px 15px;
   display: inline-block;
   color: #4A5568; /* Tailwind color for text-gray-700 */
   text-decoration: none;
+  background: none; /* No background for buttons */
+  border: none; /* No border for buttons */
+  cursor: pointer; /* Make buttons look clickable */
 }
 
-.header-nav a:hover {
+.header-nav a:hover, .header-nav button:hover {
   text-decoration: underline;
+}
+
+/* Content styling to not be covered by the sidebar */
+.main-content {
+  margin-right: 15%; /* Leave space for the sidebar */
+  padding: 20px;
 }

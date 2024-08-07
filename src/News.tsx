@@ -12,17 +12,8 @@ const News: React.FC = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/DATA/api/news'); // Updated endpoint
-        const data = await response.json();
-        setNewsItems(data);
-      } catch (error) {
-        console.error('Error fetching news:', error);
-      }
-    };
-
-    fetchData();
+    const storedNews = JSON.parse(localStorage.getItem('news') || '[]');
+    setNewsItems(storedNews);
   }, []);
 
   return (

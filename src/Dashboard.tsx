@@ -11,19 +11,25 @@ const Dashboard: React.FC = () => {
 
       <div className='button-container'>
         <div className='py-12'></div>
-        <button className='w-3/4 py-8 float-left bg-zinc-300 text-black font-bold text-left text-xl'>Upload Files</button>
         <Link to="/DATA/create-content">
           <button className='w-3/4 py-8 float-left bg-zinc-300 text-black font-bold text-left text-xl mt-4'>
-            Edit News
+            Create News/Tools
+          </button>
+        </Link> 
+        <Link to="/DATA/create-content">
+          <button className='w-3/4 py-8 float-left bg-zinc-300 text-black font-bold text-left text-xl mt-4'>
+            Edit News/Tools
           </button>
         </Link>        
         <Link to="/DATA/create-content">
           <button className='w-3/4 py-8 float-left bg-zinc-300 text-black font-bold text-left text-xl mt-4'>
-            Edit Tools
+            Delete News/Tools
           </button>
         </Link>        
         
-        
+        <div className='py-12'></div>
+        <div className='py-12'></div>
+
                 <div className='py-12'></div>
         
         <div></div>

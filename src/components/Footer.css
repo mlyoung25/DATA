@@ -16,6 +16,10 @@
     max-width: 60%;
     height: auto;
   }
+
+  .footer-left {
+    width: 30%;
+  }
   
   .footer-center {
     text-align: center;

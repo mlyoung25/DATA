@@ -1,16 +1,21 @@
 #root {
   margin: 0 auto;
+  margin-right: 10%;
   padding: 2rem;
   text-align: center;
   background-color: #00274C;
   color: white;
 }
 
+.main {
+  margin-right: 15%; /* Leave space for the sidebar */
+  padding: 20px;
+} 
+
 img {
   /* stretch image to take the full width of screen */
   width: 100%;
   height: auto;
-
 }
 
 .logo {
@@ -42,49 +47,107 @@ img {
   flex: 0 0 80%; /* Do not grow, do not shrink, and start with 80% width */
 }
 
-
 .aboutme {
+  display: flex;
+  align-items: flex-start;
+}
+
+.aboutme-heading {
+  color: #35bce8; /* light blue */
+  flex: 0 0 20%; /* Take 20% width */
+  text-align: left;
+}
+
+.aboutme-content {
+  display: flex;
+  gap: 2rem; /* Add gap between columns for spacing */
+  flex: 0 0 80%; /* Take 80% width */
+  justify-content: space-between; /* Add space between columns */
+}
+
+.aboutme-column {
+  flex: 1 1 30%; /* Grow to fill space and allow for 3 columns */
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items horizontally */
+}
+
+.aboutme-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Make the icon circular */
+  margin-bottom: 1rem; /* Space below the icon */
+}
+
+.aboutme-content p {
+  text-align: left;
+  margin-bottom: 1rem; /* Space below each paragraph */
+}
+
+.display {
   display: flex;
   align-items: flex-start; /* Align items to the start of the cross-axis */
 }
 
-.aboutme-heading {
+.display-heading {
   color: #35bce8; /* light blue */
   flex: 0 0 10%; /* Do not grow, do not shrink, and start with 10% width */
   text-align: left;
   margin-right: 5%; /* 5% gap between the heading and the paragraphs */
 }
 
-.aboutme-content {
+.display-content {
   flex: 0 0 80%; /* Do not grow, do not shrink, and start with 80% width */
 }
 
-.aboutme-content p {
+.display-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem; /* Space below each item */
+}
+
+.display-icon {
+  margin-right: 1rem; /* Space between the icon and the text */
+}
+
+.display-content p {
+  align-items: center;
   text-align: left; /* Align text to the left side */
   margin-bottom: 1rem; /* Space below each paragraph */
 }
 
-.aboutme-content li {
+.display-content img {
+  margin-bottom: 1rem; /* Space below each paragraph */
+}
+
+.display-content li {
   text-align: left; /* Align text to the left side */
   margin-left: 2rem;
   margin-bottom: 1rem; /* Space below each paragraph */
 }
 
-
-
-/* Ensure the container does not take more than the screen width 
-  .main {
-  margin: 0 5%;  // 5% margin on both sides of .main  
-  } 
-*/
-
 @media (max-width: 768px) {
-  .aboutme {
+  .display {
     flex-direction: column;
   }
 
-  .aboutme h1,
-  .aboutme p {
-    flex-basis: auto; /* Allow elements to automatically adjust */
+  .aboutme {
+    flex-direction: column; /* Stack heading and columns vertically on smaller screens */
+  }
+
+  .aboutme-heading {
+    flex: 0 0 auto; /* Take natural width */
+    margin-bottom: 1rem; /* Space below the heading */
+  }
+
+  .aboutme-content {
+    flex: 0 0 100%; /* Each column takes the full width on smaller screens */
+    flex-direction: column; /* Ensure the content stacks vertically */
+  }
+
+  .aboutme-column {
+    flex: 0 0 100%; /* Each column takes the full width on smaller screens */
+    max-width: 100%; /* Ensure columns take full width */
   }
 }

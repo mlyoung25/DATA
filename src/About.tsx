@@ -1,3 +1,4 @@
+// about.tsx is the about page of the website
 import './App.css'
 
 

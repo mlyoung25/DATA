@@ -10,10 +10,10 @@ interface TileProps {
 }
 
 const Tile: React.FC<TileProps> = ({ title, thumbnail, description, linkTo }) => {
-  const imagePath = require(`../assets/${thumbnail}`).default
+  const url = thumbnail || 'https://via.placeholder.com/150';
   return (
     <div className="tile">
-      <img src={imagePath} alt={title} />
+      <img src={url} alt={title} />
       <h3>{title}</h3>
       <p>{description}</p>
       <Link to={linkTo}>Read more</Link>
