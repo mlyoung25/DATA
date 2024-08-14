@@ -1,11 +1,14 @@
+/* app.css */
+
 #root {
   margin: 0 auto;
-  margin-right: 10%;
+  margin-right: 8%;
   padding: 2rem;
   text-align: center;
   background-color: #00274C;
   color: white;
 }
+
 
 .main {
   margin-right: 15%; /* Leave space for the sidebar */
@@ -15,6 +18,7 @@
 img {
   /* stretch image to take the full width of screen */
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -125,6 +129,27 @@ img {
   text-align: left; /* Align text to the left side */
   margin-left: 2rem;
   margin-bottom: 1rem; /* Space below each paragraph */
+}
+
+.accordion-item {
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.accordion-header {
+  background-color: #00274C;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-body {
+  padding: 1rem;
+  background-color: white;
+  color: black;
 }
 
 @media (max-width: 768px) {

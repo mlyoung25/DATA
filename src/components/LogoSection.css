@@ -1,0 +1,25 @@
+/* LogoSection.css */
+
+.logo-section {
+    width: 150%;
+    background-color: #f8f8f8;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;       /* Make the section fixed */
+    top: -2rem;                /* Position it at the top */
+    left: -2rem;               /* Align it to the left */
+    z-index: 1000;         /* Ensure it stays on top */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for an elevated effect */
+    padding-left: 3rem;
+}
+
+.nsf-logo, .header-logo {
+    display: inline-block;
+    margin-right: 1rem; /* Adjust spacing between the logos if needed */
+}
+
+.nsf-logo img, .header-logo img {
+    height: 100px; /* Adjust the width of the logo */
+}
