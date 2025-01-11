@@ -8,4 +8,4 @@ const ProtectedRoute: React.FC<{ element: React.ReactElement }> = ({ element }) 
   return isAuthenticated ? element : <Navigate to="/DATA/login" />;
 };
 
-export default ProtectedRoute;
+export default ProtectedRoute;      

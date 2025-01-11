@@ -5,6 +5,8 @@
     width: 100%;
     padding: 20px;
     background: #083485; /* Example background color */
+    left: -2rem;
+    top: 2rem;
     color: white;
   }
   

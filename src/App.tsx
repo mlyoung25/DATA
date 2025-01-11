@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import './App.css';
 import AAB from './assets/basic.jpg';
@@ -14,8 +14,8 @@ import Icon3 from './assets/icon3.jpg';
 const App: React.FC = () => {
   const [open, setOpen] = useState(Array(4).fill(false));
 
-  const toggleAccordion = (index) => {
-    setOpen(open.map((val, i) => (i === index ? !val : val)));
+  const toggleAccordion = (index: number): void => {
+    setOpen(open.map((val: boolean, i: number) => (i === index ? !val : val)));
   };
 
   const location = useLocation();
@@ -197,7 +197,7 @@ const App: React.FC = () => {
 
         <div className="py-8"></div>
 
-        <img className="object-fill h-1/3" src={yeah} alt="uhh" />
+        <img className="object-fill h-1/3 fullwidth" src={yeah} alt="uhh" />
 
         <div className="py-8"></div>
       </div>
